@@ -7,18 +7,39 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
-            var car = new Car();
-            
-            var truck = new Truck();
-            
-            var vehicles = new List<IVehicle>() {car, truck};
-
-            foreach (var vehicle in vehicles)
+            var myCar = new Car
             {
-                vehicle.Drive();
-                vehicle.ChangeGears(true);
-                vehicle.Reverse();
-            }
+                Model = "Rav 4",
+                CompanyName = "Toyota",
+                Motto = "Lets go places",
+                Engine = 6.5
+            };
+            
+            Console.WriteLine($"Car: {myCar.Model}, Company: {myCar.CompanyName}, Motto: {myCar.Motto}, Engine: {myCar.Engine}");
+            
+            myCar.ChangeGears(true);
+            myCar.Drive();
+            myCar.ChangeGears(true);
+            myCar.Park();
+
+
+            var myTruck = new Truck();
+
+            myTruck.Model = "Tacoma";
+            myTruck.CompanyName = "Toyota";
+            myTruck.Motto = "Lets go places";
+            myTruck.HasFourWheelDrive = true;
+            
+            Console.WriteLine($"Truck: {myTruck.Model}, Company: {myTruck.CompanyName}, FourWheel: {myTruck.HasFourWheelDrive}");
+            
+            myTruck.ChangeGears(true);
+            myTruck.Drive();
+            myTruck.Reverse();
+            myTruck.ChangeGears(true);
+            myTruck.Park();
+            
+
+
             //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
             //Create 2 Interfaces called IVehicle & ICompany
